@@ -8,6 +8,7 @@ import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 // App Config
 const app = express();
@@ -25,6 +26,10 @@ app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+// });
 
 app.get("/", (req, res) => {
   res.send("API Working");
